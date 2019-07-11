@@ -15,8 +15,7 @@ public class Conexion {
 	private static final String JDBC_PASS = "admin";
 
 	// Métodos de acceso a la base de datos
-	public static Connection getConnection() throws SQLException {
-		// FIXME Puede no funcionar a priori
+	public static synchronized Connection getConnection() throws SQLException {
 		try {
 			// Se crea y registra el nuevo driver
 			Driver driver = new Driver();
