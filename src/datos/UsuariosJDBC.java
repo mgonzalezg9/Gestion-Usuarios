@@ -10,7 +10,7 @@ import java.util.List;
 import domain.Usuario;
 
 public class UsuariosJDBC {
-	// TODO Atributos de clase
+	// Atributos de clase
 	private final String SQL_INSERT = "INSERT INTO USUARIO(usuario, password) VALUES (?,?)";
 	private final String SQL_UPDATE = "UPDATE USUARIO SET usuario=?, password=? WHERE id_usuario=?";
 	private final String SQL_DELETE = "DELETE FROM USUARIO WHERE id_usuario=?";
@@ -21,7 +21,11 @@ public class UsuariosJDBC {
 
 	// Constructores
 	public UsuariosJDBC() {
-		userConn = Conexion.getConnection();
+		try {
+			userConn = Conexion.getConnection();
+		} catch (SQLException e) {
+			System.err.println("Imposible establecer conexión con la base de datos");
+		}
 	}
 
 	public UsuariosJDBC(Connection c) {
@@ -61,9 +65,9 @@ public class UsuariosJDBC {
 			}
 			stmt = userConn.prepareStatement(SQL_UPDATE);
 			int index = 1;
-			stmt.setInt(index++, id_usuario);
 			stmt.setString(index++, usuario);
 			stmt.setString(index++, password);
+			stmt.setInt(index++, id_usuario);
 			rows = stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

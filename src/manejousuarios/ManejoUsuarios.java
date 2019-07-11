@@ -59,7 +59,6 @@ public class ManejoUsuarios {
 				System.out.print("Contraseña: ");
 				password = sc.next();
 				bd.insert(usuario, password);
-				System.out.println("* Usuario creado exitosamente");
 				break;
 
 			case 3:
@@ -72,7 +71,6 @@ public class ManejoUsuarios {
 				System.out.print("Contraseña (Nueva): ");
 				password = sc.next();
 				bd.update(id_usuario, usuario, password);
-				System.out.println("* Usuario modificado con éxito");
 				break;
 
 			case 4:
@@ -81,8 +79,8 @@ public class ManejoUsuarios {
 				System.out.print("Id: ");
 				id_usuario = sc.nextInt();
 				bd.delete(id_usuario);
-				System.out.println("* Usuario borrado exitosamente");
 			}
+			
 		}
 		
 		sc.close();
