@@ -7,10 +7,10 @@ import domain.Usuario;
 
 public class UsuariosJDBC {
 	// TODO Atributos de clase
-	private static final String SQL_INSERT;
-	private static final String SQL_UPDATE;
-	private static final String SQL_DELETE;
-	private static final String SQL_SELECT;
+	private static final String SQL_INSERT = "";
+	private static final String SQL_UPDATE = "";
+	private static final String SQL_DELETE = "";
+	private static final String SQL_SELECT = "";
 	
 	// Atributos
 	private Connection userConn;
